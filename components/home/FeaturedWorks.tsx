@@ -66,7 +66,7 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
         {/* Featured grid */}
         <div
           className={cn(
-            'grid gap-6 md:gap-8',
+            'grid gap-8 md:gap-10',
             posts.length === 1
               ? 'grid-cols-1 max-w-2xl mx-auto'
               : posts.length === 2

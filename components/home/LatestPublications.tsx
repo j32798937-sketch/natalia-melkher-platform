@@ -64,7 +64,7 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
         </FadeIn>
 
         {/* Publications grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {posts.map((post, index) => (
             <PublicationCard
               key={post.id}

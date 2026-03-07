@@ -39,36 +39,16 @@ export function Footer({ locale, dictionary }: FooterProps) {
         <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-l from-transparent to-[var(--color-accent-light)]/40" />
       </div>
 
-      {/* Main footer content */}
+      {/* Main footer content — 4 columns: Библиотека | Об авторе | Библиотека | Связаться */}
       <div className="container-content py-14 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10"
         >
-          {/* ── Brand & Tagline ──────────── */}
-          <div className="lg:col-span-5">
-            <Link
-              href={`/${locale}`}
-              className="inline-flex items-center gap-2 group no-underline mb-4"
-            >
-              <span className="text-[var(--color-accent)] text-xl transition-transform duration-300 group-hover:rotate-12">
-                ✦
-              </span>
-              <span className="font-heading text-2xl text-[var(--color-text-primary)] tracking-tight group-hover:text-[var(--color-accent)] transition-colors">
-                {locale === 'ru' ? 'Наталья Мельхер' : 'Natalia Melkher'}
-              </span>
-            </Link>
-            <p className="text-sm text-[var(--color-text-tertiary)] max-w-xs">
-              {locale === 'ru'
-                ? 'Литературная платформа — поэзия, проза, эссе и размышления.'
-                : 'Literary platform — poetry, prose, essays and reflections.'}
-            </p>
-          </div>
-
-          {/* ── Literary Links ─────────── */}
-          <div className="lg:col-span-3">
+          {/* Библиотека — категории */}
+          <div>
             <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.nav.library}
             </h4>
@@ -96,8 +76,8 @@ export function Footer({ locale, dictionary }: FooterProps) {
             </ul>
           </div>
 
-          {/* ── About Links ────────────── */}
-          <div className="lg:col-span-2">
+          {/* Об авторе */}
+          <div>
             <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.nav.about}
             </h4>
@@ -138,8 +118,30 @@ export function Footer({ locale, dictionary }: FooterProps) {
             </ul>
           </div>
 
-          {/* ── Contact ────────────────── */}
-          <div className="lg:col-span-2">
+          {/* Библиотека — все публикации */}
+          <div>
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
+              {dictionary.nav.library}
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href={`/${locale}/library`}
+                  className={cn(
+                    'text-sm text-[var(--color-text-secondary)]',
+                    'hover:text-[var(--color-accent)]',
+                    'transition-colors duration-200',
+                    'inline-block hover:translate-x-1'
+                  )}
+                >
+                  {locale === 'ru' ? 'Все публикации' : 'All publications'}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Связаться */}
+          <div>
             <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.contact.title}
             </h4>

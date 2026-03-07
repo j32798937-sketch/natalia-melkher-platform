@@ -71,7 +71,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
   return (
     <section
       className={cn(
-        'relative min-h-[90vh] flex items-center justify-center',
+        'relative min-h-[70vh] md:min-h-[75vh] flex items-center justify-center py-12',
         'overflow-hidden'
       )}
     >
@@ -102,10 +102,10 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
       />
 
       {/* Content */}
-      <div className="relative z-10 container-content text-center px-6 py-20">
+      <div className="relative z-10 container-content text-center px-6 py-10 md:py-14">
         {/* Decorative line */}
         <FadeIn delay={0.2} direction="none" duration={1.2}>
-          <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[var(--color-accent-light)]" />
             <span className="text-[var(--color-accent-light)] text-sm tracking-[0.3em]">✦</span>
             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[var(--color-accent-light)]" />
@@ -113,7 +113,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
         </FadeIn>
 
         {/* Main title */}
-        <div className="mb-8">
+        <div className="mb-6">
           <TextReveal
             as="h1"
             by="word"
@@ -145,7 +145,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
 
         {/* CTA Button */}
         <FadeIn delay={1.8} duration={0.8} direction="up" distance={15}>
-          <div className="mt-10">
+          <div className="mt-8">
             <Button
               href={`/${locale}/library`}
               variant="primary"
@@ -174,7 +174,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
 
         {/* Scroll indicator — minimal chevron */}
         <FadeIn delay={2.5} duration={1} direction="none">
-          <div className="mt-16 md:mt-24 flex justify-center">
+          <div className="mt-10 md:mt-14 flex justify-center">
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}

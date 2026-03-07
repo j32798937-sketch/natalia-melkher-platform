@@ -92,12 +92,15 @@ export function PublicationCard({
               {post.title}
             </h3>
 
-            {/* Meta */}
+            {/* Meta — separator prevents "миноколо" */}
             <div className="flex items-center gap-3 mt-1.5 text-xs text-[var(--color-text-tertiary)]">
               {post.categoryName && <span>{post.categoryName}</span>}
               <span>{post.readingTime} мин</span>
               {post.publishedAt && (
-                <span>{formatDateSmart(post.publishedAt, locale)}</span>
+                <>
+                  <span className="opacity-60">·</span>
+                  <span>{formatDateSmart(post.publishedAt, locale)}</span>
+                </>
               )}
             </div>
           </div>
@@ -165,10 +168,10 @@ export function PublicationCard({
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-6 space-y-4">
               {/* Category */}
               {post.categoryName && (
-                <div className="mb-3">
+                <div>
                   <Badge variant="outline" size="sm">
                     {categoryIcon} {post.categoryName}
                   </Badge>
@@ -178,7 +181,7 @@ export function PublicationCard({
               {/* Title */}
               <h3
                 className={cn(
-                  'font-heading text-xl md:text-2xl leading-tight mb-3',
+                  'font-heading text-xl md:text-2xl leading-tight',
                   'text-[var(--color-text-primary)]',
                   'group-hover:text-[var(--color-accent)]',
                   'transition-colors duration-300'
@@ -189,12 +192,12 @@ export function PublicationCard({
 
               {/* Excerpt */}
               {post.excerpt && (
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-3 mb-4">
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
               )}
 
-              {/* Meta */}
+              {/* Meta — separator prevents "миноколо" when "мин" + "около" run together */}
               <div className="flex items-center gap-4 text-xs text-[var(--color-text-tertiary)]">
                 <span className="flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -203,9 +206,11 @@ export function PublicationCard({
                   </svg>
                   {post.readingTime} мин
                 </span>
-
                 {post.publishedAt && (
-                  <span>{formatDateSmart(post.publishedAt, locale)}</span>
+                  <>
+                    <span className="opacity-60">·</span>
+                    <span>{formatDateSmart(post.publishedAt, locale)}</span>
+                  </>
                 )}
               </div>
             </div>
@@ -256,10 +261,10 @@ export function PublicationCard({
           )}
 
           {/* Content */}
-          <div className="p-5">
+          <div className="p-5 space-y-3">
             {/* Category */}
             {post.categoryName && (
-              <span className="text-caption text-[var(--color-accent)] mb-2 inline-block">
+              <span className="text-caption text-[var(--color-accent)] block">
                 {categoryIcon} {post.categoryName}
               </span>
             )}
@@ -267,7 +272,7 @@ export function PublicationCard({
             {/* Title */}
             <h3
               className={cn(
-                'font-heading text-lg leading-snug mb-2',
+                'font-heading text-lg leading-snug',
                 'text-[var(--color-text-primary)]',
                 'group-hover:text-[var(--color-accent)]',
                 'transition-colors duration-300',
@@ -279,17 +284,17 @@ export function PublicationCard({
 
             {/* Excerpt */}
             {post.excerpt && (
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2 mb-3">
+              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2">
                 {post.excerpt}
               </p>
             )}
 
-            {/* Meta */}
+            {/* Meta — separator prevents "миноколо" when "мин" + "около" run together */}
             <div className="flex items-center gap-3 text-xs text-[var(--color-text-tertiary)]">
               <span>{post.readingTime} мин</span>
               {post.publishedAt && (
                 <>
-                  <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+                  <span className="opacity-60" aria-hidden="true">·</span>
                   <span>{formatDateSmart(post.publishedAt, locale)}</span>
                 </>
               )}
