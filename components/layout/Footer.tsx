@@ -17,12 +17,7 @@ interface FooterProps {
 /**
  * Site Footer
  *
- * Features:
- * - Literary quote
- * - Navigation links by section
- * - Language and copyright
- * - Subtle reveal animation
- * - Decorative divider
+ * Literary, elegant footer with quote, navigation and contact.
  */
 export function Footer({ locale, dictionary }: FooterProps) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
@@ -32,51 +27,53 @@ export function Footer({ locale, dictionary }: FooterProps) {
     <footer
       ref={ref as React.RefObject<HTMLElement>}
       className={cn(
-        'relative',
+        'relative overflow-hidden',
         'border-t border-[var(--color-border)]',
-        'bg-[var(--color-surface)]'
+        'bg-gradient-to-b from-[var(--color-background)] to-[var(--color-surface)]'
       )}
     >
-      {/* Decorative top divider */}
-      <div className="divider mt-0 mb-0 py-6">✦</div>
+      {/* Decorative top line */}
+      <div className="flex items-center justify-center gap-3 py-8 border-b border-[var(--color-border)]/60">
+        <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-r from-transparent to-[var(--color-accent-light)]/40" />
+        <span className="text-[var(--color-accent-light)]/70 text-lg">✦</span>
+        <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-l from-transparent to-[var(--color-accent-light)]/40" />
+      </div>
 
       {/* Main footer content */}
-      <div className="container-content pb-12">
+      <div className="container-content py-14 pb-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8"
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10"
         >
-          {/* ── Column 1: Brand & Quote ──────────── */}
-          <div className="md:col-span-5">
-            {/* Site name */}
+          {/* ── Brand & Quote ──────────── */}
+          <div className="lg:col-span-5">
             <Link
               href={`/${locale}`}
-              className="inline-block group no-underline mb-6"
+              className="inline-flex items-center gap-2 group no-underline mb-6"
             >
-              <span className="font-heading text-2xl text-[var(--color-text-primary)] tracking-tight">
-                <span className="text-[var(--color-accent)] mr-2 inline-block transition-transform duration-500 group-hover:rotate-45">
-                  ✦
-                </span>
+              <span className="text-[var(--color-accent)] text-xl transition-transform duration-300 group-hover:rotate-12">
+                ✦
+              </span>
+              <span className="font-heading text-2xl text-[var(--color-text-primary)] tracking-tight group-hover:text-[var(--color-accent)] transition-colors">
                 {locale === 'ru' ? 'Наталья Мельхер' : 'Natalia Melkher'}
               </span>
             </Link>
 
-            {/* Literary quote */}
-            <blockquote className="mt-4">
-              <p className="font-literary text-sm italic leading-relaxed text-[var(--color-text-secondary)]">
+            <blockquote className="relative pl-5 border-l-2 border-[var(--color-accent)]/30">
+              <p className="font-literary text-base md:text-lg italic leading-relaxed text-[var(--color-text-secondary)]">
                 &ldquo;{dictionary.home.quote.text}&rdquo;
               </p>
             </blockquote>
           </div>
 
-          {/* ── Column 2: Literary Links ─────────── */}
-          <div className="md:col-span-3">
-            <h4 className="text-caption mb-4">
+          {/* ── Literary Links ─────────── */}
+          <div className="lg:col-span-3">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.nav.library}
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footerNavigation.literary.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
@@ -88,7 +85,8 @@ export function Footer({ locale, dictionary }: FooterProps) {
                       className={cn(
                         'text-sm text-[var(--color-text-secondary)]',
                         'hover:text-[var(--color-accent)]',
-                        'transition-colors duration-200'
+                        'transition-colors duration-200',
+                        'inline-block hover:translate-x-1'
                       )}
                     >
                       {label}
@@ -99,12 +97,12 @@ export function Footer({ locale, dictionary }: FooterProps) {
             </ul>
           </div>
 
-          {/* ── Column 3: About Links ────────────── */}
-          <div className="md:col-span-2">
-            <h4 className="text-caption mb-4">
+          {/* ── About Links ────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.nav.about}
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footerNavigation.about.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
@@ -116,7 +114,8 @@ export function Footer({ locale, dictionary }: FooterProps) {
                       className={cn(
                         'text-sm text-[var(--color-text-secondary)]',
                         'hover:text-[var(--color-accent)]',
-                        'transition-colors duration-200'
+                        'transition-colors duration-200',
+                        'inline-block hover:translate-x-1'
                       )}
                     >
                       {label}
@@ -124,15 +123,14 @@ export function Footer({ locale, dictionary }: FooterProps) {
                   </li>
                 )
               })}
-
-              {/* Search */}
               <li>
                 <Link
                   href={`/${locale}/search`}
                   className={cn(
                     'text-sm text-[var(--color-text-secondary)]',
                     'hover:text-[var(--color-accent)]',
-                    'transition-colors duration-200'
+                    'transition-colors duration-200',
+                    'inline-block hover:translate-x-1'
                   )}
                 >
                   {dictionary.nav.search}
@@ -141,9 +139,9 @@ export function Footer({ locale, dictionary }: FooterProps) {
             </ul>
           </div>
 
-          {/* ── Column 4: Contact ────────────────── */}
-          <div className="md:col-span-2">
-            <h4 className="text-caption mb-4">
+          {/* ── Contact ────────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
               {dictionary.contact.title}
             </h4>
             <a
@@ -151,7 +149,8 @@ export function Footer({ locale, dictionary }: FooterProps) {
               className={cn(
                 'text-sm text-[var(--color-text-secondary)]',
                 'hover:text-[var(--color-accent)]',
-                'transition-colors duration-200'
+                'transition-colors duration-200',
+                'inline-block hover:underline underline-offset-2'
               )}
             >
               contact@natalia-melkher.com
@@ -161,10 +160,9 @@ export function Footer({ locale, dictionary }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[var(--color-border)]">
-        <div className="container-content py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Copyright */}
+      <div className="border-t border-[var(--color-border)] bg-[var(--color-surface)]/50">
+        <div className="container-content py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <p className="text-xs text-[var(--color-text-tertiary)]">
               {getTranslationWithVars(dictionary, 'common.copyright', {
                 year: currentYear,
@@ -172,8 +170,6 @@ export function Footer({ locale, dictionary }: FooterProps) {
               {' · '}
               {dictionary.common.allRightsReserved}
             </p>
-
-            {/* Made with love */}
             <p className="text-xs text-[var(--color-text-tertiary)]">
               {dictionary.common.madeWith}
             </p>
