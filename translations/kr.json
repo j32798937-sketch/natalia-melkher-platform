@@ -1,0 +1,19 @@
+{
+    "meta": { "title": "Natalia Melkher — 문학 플랫폼", "description": "시, 산문, 에세이, 그리고 성찰. 텍스트를 예술의 한 형태로 경험하는 예술적 플랫폼." },
+    "nav": { "home": "홈", "library": "도서관", "poetry": "시", "prose": "산문", "essays": "에세이", "reflections": "성찰", "diary": "일기", "about": "소개", "contact": "연락", "search": "검색", "language": "언어" },
+    "home": {
+      "hero": { "title": "고요와 언어의 공간", "subtitle": "Natalia Melkher의 문학 플랫폼 — 진정으로 중요한 것에 대한 시, 산문, 에세이와 성찰", "cta": "도서관 입장" },
+      "featured": { "title": "추천", "viewAll": "모두 보기" },
+      "latest": { "title": "최신 출판물", "viewAll": "모든 출판물" },
+      "quote": { "text": "말은 영혼 사이의 다리입니다. 모든 시는 듣는 이에게 닿으려는 시도입니다.", "author": "Natalia Melkher" }
+    },
+    "library": { "title": "도서관", "subtitle": "모든 작품이 한 곳에", "allCategories": "모든 카테고리", "noResults": "출판물을 찾을 수 없습니다", "readMore": "읽기", "readingTime": "{minutes}분 읽기", "views": "{count}회 조회", "publishedOn": "{date}에 게시됨", "sortBy": "정렬", "sortNewest": "최신순", "sortOldest": "오래된순", "sortPopular": "인기순", "filterBy": "필터" },
+    "reading": { "backToLibrary": "도서관으로 돌아가기", "publishedOn": "게시일", "readingTime": "읽기 시간", "views": "조회수", "share": "공유", "listen": "듣기", "stopListening": "중지", "relatedWorks": "관련 작품", "fontSize": "글꼴 크기", "theme": "테마", "themeLight": "밝은", "themeDark": "어두운", "themeSepia": "세피아", "bookmark": "북마크", "bookmarked": "북마크됨" },
+    "about": { "title": "작가 소개", "subtitle": "Natalia Melkher — 작가, 시인, 에세이스트" },
+    "contact": { "title": "연락", "subtitle": "질문이 있으시면 써 주세요", "name": "이름", "email": "이메일", "subject": "제목", "message": "메시지", "send": "보내기", "sending": "전송 중...", "sent": "메시지 전송됨", "error": "전송 실패" },
+    "search": { "title": "검색", "placeholder": "시, 산문, 에세이 검색...", "noResults": "\"{query}\"에 대한 결과 없음", "resultsFor": "\"{query}\"에 대한 결과", "results": "{count}개 결과" },
+    "cms": { "dashboard": "대시보드", "posts": "출판물", "newPost": "새 출판물", "editPost": "편집", "media": "미디어", "categories": "카테고리", "analytics": "분석", "settings": "설정", "logout": "로그아웃", "save": "저장", "saving": "저장 중...", "saved": "저장됨", "delete": "삭제", "cancel": "취소", "confirm": "확인", "publish": "게시", "unpublish": "게시 취소", "draft": "초안", "published": "게시됨", "archived": "보관됨", "title": "제목", "content": "내용", "excerpt": "발췌", "category": "카테고리", "tags": "태그", "coverImage": "커버 이미지", "featured": "추천", "slug": "URL", "metaTitle": "SEO 제목", "metaDescription": "SEO 설명", "translate": "번역", "aiAssist": "AI 어시스턴트" },
+    "common": { "loading": "로딩 중...", "error": "오류가 발생했습니다", "retry": "다시 시도", "goBack": "뒤로", "goHome": "홈으로", "notFound": "페이지를 찾을 수 없습니다", "notFoundMessage": "이 페이지는 존재하지 않습니다.", "serverError": "서버 오류", "serverErrorMessage": "문제가 발생했습니다.", "copyright": "© {year} Natalia Melkher", "allRightsReserved": "모든 권리 보유", "madeWith": "문학에 대한 사랑으로 만듦" },
+    "ai": { "assistant": "AI 어시스턴트", "translate": "AI 번역", "illustrate": "AI 일러스트", "recommend": "추천", "generating": "생성 중...", "improve": "개선", "continue": "계속", "rephrase": "다시 쓰기", "summarize": "요약", "expand": "확장" },
+    "tts": { "play": "재생", "pause": "일시정지", "stop": "정지", "speed": "속도", "voice": "음성" }
+  }

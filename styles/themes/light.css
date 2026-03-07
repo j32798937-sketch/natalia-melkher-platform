@@ -1,0 +1,44 @@
+/* ═══════════════════════════════════════════════════════
+   LIGHT THEME — Ivory Silence
+   Warm, clean, paper-like atmosphere
+   ═══════════════════════════════════════════════════════ */
+
+   :root,
+   [data-theme="light"] {
+     color-scheme: light;
+   
+     --color-background: #FAFAF8;
+     --color-surface: #F5F5F0;
+     --color-text-primary: #1A1A1A;
+     --color-text-secondary: #6B6B6B;
+     --color-text-tertiary: #9A9A9A;
+     --color-accent: #8B7355;
+     --color-accent-light: #C4A882;
+     --color-accent-hover: #7A6448;
+     --color-border: #E8E4DC;
+     --color-border-light: #F0EBE0;
+     --color-highlight: #F0EBE0;
+     --color-shadow: rgba(0, 0, 0, 0.04);
+     --color-overlay: rgba(0, 0, 0, 0.4);
+   
+     --color-success: #4A7C59;
+     --color-warning: #B8860B;
+     --color-error: #A04040;
+     --color-info: #4A6A8A;
+   
+     --color-card-bg: #FFFFFF;
+     --color-card-border: #F0EBE0;
+     --color-card-hover: #FAFAF8;
+   
+     --color-input-bg: #FFFFFF;
+     --color-input-border: #E8E4DC;
+     --color-input-focus: #C4A882;
+   
+     --color-button-primary-bg: #8B7355;
+     --color-button-primary-text: #FFFFFF;
+     --color-button-primary-hover: #7A6448;
+     --color-button-secondary-bg: transparent;
+     --color-button-secondary-text: #8B7355;
+     --color-button-secondary-border: #E8E4DC;
+     --color-button-secondary-hover: #F5F5F0;
+   }

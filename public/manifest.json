@@ -1,0 +1,26 @@
+{
+    "name": "Наталья Мельхер — Литературная платформа",
+    "short_name": "Melkher",
+    "description": "Поэзия, проза, эссе и размышления. Художественная платформа, где тексты воспринимаются как форма искусства.",
+    "start_url": "/ru",
+    "display": "standalone",
+    "background_color": "#FAFAF8",
+    "theme_color": "#8B7355",
+    "orientation": "portrait-primary",
+    "lang": "ru",
+    "icons": [
+      {
+        "src": "/icons/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/icons/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ],
+    "categories": ["books", "education", "entertainment"]
+  }

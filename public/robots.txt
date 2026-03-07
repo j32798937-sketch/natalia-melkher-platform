@@ -1,0 +1,14 @@
+# Natalia Melkher Literary Platform
+# https://natalia-melkher.com
+
+User-agent: *
+Allow: /
+
+# Disallow CMS and API routes
+Disallow: /cms
+Disallow: /cms/
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemaps
+Sitemap: https://natalia-melkher.com/sitemap.xml

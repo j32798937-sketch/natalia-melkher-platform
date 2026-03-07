@@ -1,0 +1,160 @@
+{
+    "meta": {
+      "title": "Natalia Melkher — Literary Platform",
+      "description": "Poetry, prose, essays, and reflections. An artistic platform where texts are experienced as a form of art."
+    },
+    "nav": {
+      "home": "Home",
+      "library": "Library",
+      "poetry": "Poetry",
+      "prose": "Prose",
+      "essays": "Essays",
+      "reflections": "Reflections",
+      "diary": "Diary",
+      "about": "About",
+      "contact": "Contact",
+      "search": "Search",
+      "language": "Language"
+    },
+    "home": {
+      "hero": {
+        "title": "A Space of Silence and Word",
+        "subtitle": "Natalia Melkher's literary platform — poetry, prose, essays and reflections on what truly matters",
+        "cta": "Enter the Library"
+      },
+      "featured": {
+        "title": "Featured",
+        "viewAll": "View All"
+      },
+      "latest": {
+        "title": "Latest Publications",
+        "viewAll": "All Publications"
+      },
+      "quote": {
+        "text": "Words are bridges between souls. Every poem is an attempt to reach the one who listens.",
+        "author": "Natalia Melkher"
+      }
+    },
+    "library": {
+      "title": "Library",
+      "subtitle": "All works in one space",
+      "allCategories": "All Categories",
+      "noResults": "No publications found",
+      "readMore": "Read",
+      "readingTime": "{minutes} min read",
+      "views": "{count} views",
+      "publishedOn": "Published {date}",
+      "sortBy": "Sort by",
+      "sortNewest": "Newest first",
+      "sortOldest": "Oldest first",
+      "sortPopular": "Most popular",
+      "filterBy": "Filter"
+    },
+    "reading": {
+      "backToLibrary": "Back to Library",
+      "publishedOn": "Published",
+      "readingTime": "Reading time",
+      "views": "Views",
+      "share": "Share",
+      "listen": "Listen",
+      "stopListening": "Stop",
+      "relatedWorks": "Related Works",
+      "fontSize": "Font size",
+      "theme": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeSepia": "Sepia",
+      "bookmark": "Bookmark",
+      "bookmarked": "Bookmarked"
+    },
+    "about": {
+      "title": "About the Author",
+      "subtitle": "Natalia Melkher — writer, poet, author of essays and literary prose"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Write to me if you have questions or suggestions",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "sent": "Message sent",
+      "error": "Sending failed"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Find poetry, prose, essays...",
+      "noResults": "Nothing found for \"{query}\"",
+      "resultsFor": "Results for \"{query}\"",
+      "results": "{count} results"
+    },
+    "cms": {
+      "dashboard": "Dashboard",
+      "posts": "Publications",
+      "newPost": "New Publication",
+      "editPost": "Edit",
+      "media": "Media",
+      "categories": "Categories",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "logout": "Log Out",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived",
+      "title": "Title",
+      "content": "Content",
+      "excerpt": "Excerpt",
+      "category": "Category",
+      "tags": "Tags",
+      "coverImage": "Cover Image",
+      "featured": "Featured",
+      "slug": "URL Slug",
+      "metaTitle": "SEO Title",
+      "metaDescription": "SEO Description",
+      "translate": "Translate",
+      "aiAssist": "AI Assistant"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "retry": "Try again",
+      "goBack": "Go back",
+      "goHome": "Go home",
+      "notFound": "Page Not Found",
+      "notFoundMessage": "This page does not exist. It may have been moved or deleted.",
+      "serverError": "Server Error",
+      "serverErrorMessage": "Something went wrong. Please try again later.",
+      "copyright": "© {year} Natalia Melkher",
+      "allRightsReserved": "All rights reserved",
+      "madeWith": "Made with love for literature"
+    },
+    "ai": {
+      "assistant": "AI Assistant",
+      "translate": "AI Translation",
+      "illustrate": "AI Illustration",
+      "recommend": "Recommendations",
+      "generating": "Generating...",
+      "improve": "Improve",
+      "continue": "Continue",
+      "rephrase": "Rephrase",
+      "summarize": "Summarize",
+      "expand": "Expand"
+    },
+    "tts": {
+      "play": "Play",
+      "pause": "Pause",
+      "stop": "Stop",
+      "speed": "Speed",
+      "voice": "Voice"
+    }
+  }

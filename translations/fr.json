@@ -1,0 +1,68 @@
+{
+    "meta": {
+      "title": "Natalia Melkher — Plateforme littéraire",
+      "description": "Poésie, prose, essais et réflexions. Une plateforme artistique où les textes sont perçus comme une forme d'art."
+    },
+    "nav": {
+      "home": "Accueil",
+      "library": "Bibliothèque",
+      "poetry": "Poésie",
+      "prose": "Prose",
+      "essays": "Essais",
+      "reflections": "Réflexions",
+      "diary": "Journal",
+      "about": "À propos",
+      "contact": "Contact",
+      "search": "Recherche",
+      "language": "Langue"
+    },
+    "home": {
+      "hero": {
+        "title": "Un espace de silence et de mots",
+        "subtitle": "La plateforme littéraire de Natalia Melkher — poésie, prose, essais et réflexions sur l'essentiel",
+        "cta": "Entrer dans la bibliothèque"
+      },
+      "featured": { "title": "En vedette", "viewAll": "Voir tout" },
+      "latest": { "title": "Dernières publications", "viewAll": "Toutes les publications" },
+      "quote": { "text": "Les mots sont des ponts entre les âmes. Chaque poème est une tentative d'atteindre celui qui écoute.", "author": "Natalia Melkher" }
+    },
+    "library": {
+      "title": "Bibliothèque",
+      "subtitle": "Toutes les œuvres en un seul espace",
+      "allCategories": "Toutes les catégories",
+      "noResults": "Aucune publication trouvée",
+      "readMore": "Lire",
+      "readingTime": "{minutes} min de lecture",
+      "views": "{count} vues",
+      "publishedOn": "Publié le {date}",
+      "sortBy": "Trier par",
+      "sortNewest": "Plus récent",
+      "sortOldest": "Plus ancien",
+      "sortPopular": "Plus populaire",
+      "filterBy": "Filtrer"
+    },
+    "reading": {
+      "backToLibrary": "Retour à la bibliothèque",
+      "publishedOn": "Publié",
+      "readingTime": "Temps de lecture",
+      "views": "Vues",
+      "share": "Partager",
+      "listen": "Écouter",
+      "stopListening": "Arrêter",
+      "relatedWorks": "Œuvres similaires",
+      "fontSize": "Taille du texte",
+      "theme": "Thème",
+      "themeLight": "Clair",
+      "themeDark": "Sombre",
+      "themeSepia": "Sépia",
+      "bookmark": "Marquer",
+      "bookmarked": "Marqué"
+    },
+    "about": { "title": "À propos de l'auteure", "subtitle": "Natalia Melkher — écrivaine, poète, essayiste" },
+    "contact": { "title": "Contact", "subtitle": "Écrivez-moi", "name": "Nom", "email": "E-mail", "subject": "Sujet", "message": "Message", "send": "Envoyer", "sending": "Envoi...", "sent": "Message envoyé", "error": "Échec de l'envoi" },
+    "search": { "title": "Recherche", "placeholder": "Chercher poésie, prose, essais...", "noResults": "Aucun résultat pour \"{query}\"", "resultsFor": "Résultats pour \"{query}\"", "results": "{count} résultats" },
+    "cms": { "dashboard": "Tableau de bord", "posts": "Publications", "newPost": "Nouvelle publication", "editPost": "Modifier", "media": "Médias", "categories": "Catégories", "analytics": "Analytique", "settings": "Paramètres", "logout": "Déconnexion", "save": "Enregistrer", "saving": "Enregistrement...", "saved": "Enregistré", "delete": "Supprimer", "cancel": "Annuler", "confirm": "Confirmer", "publish": "Publier", "unpublish": "Dépublier", "draft": "Brouillon", "published": "Publié", "archived": "Archivé", "title": "Titre", "content": "Contenu", "excerpt": "Extrait", "category": "Catégorie", "tags": "Tags", "coverImage": "Image de couverture", "featured": "En vedette", "slug": "URL", "metaTitle": "Titre SEO", "metaDescription": "Description SEO", "translate": "Traduire", "aiAssist": "Assistant IA" },
+    "common": { "loading": "Chargement...", "error": "Une erreur est survenue", "retry": "Réessayer", "goBack": "Retour", "goHome": "Accueil", "notFound": "Page non trouvée", "notFoundMessage": "Cette page n'existe pas.", "serverError": "Erreur serveur", "serverErrorMessage": "Quelque chose s'est mal passé.", "copyright": "© {year} Natalia Melkher", "allRightsReserved": "Tous droits réservés", "madeWith": "Créé avec amour pour la littérature" },
+    "ai": { "assistant": "Assistant IA", "translate": "Traduction IA", "illustrate": "Illustration IA", "recommend": "Recommandations", "generating": "Génération...", "improve": "Améliorer", "continue": "Continuer", "rephrase": "Reformuler", "summarize": "Résumer", "expand": "Développer" },
+    "tts": { "play": "Lecture", "pause": "Pause", "stop": "Arrêt", "speed": "Vitesse", "voice": "Voix" }
+  }

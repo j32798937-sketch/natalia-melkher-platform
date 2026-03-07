@@ -1,0 +1,300 @@
+/* ═══════════════════════════════════════════════════════
+   LITERARY TYPOGRAPHY SYSTEM
+   Designed for poetry, prose, essays
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Literary Text ───────────────────────────────────── */
+
+.literary-text {
+    font-family: var(--font-literary);
+    font-size: 1.125rem;
+    line-height: 2;
+    letter-spacing: 0.01em;
+    color: var(--color-text-primary);
+    max-width: var(--reading-max-width);
+  }
+  
+  @media (min-width: 768px) {
+    .literary-text {
+      font-size: 1.25rem;
+      line-height: 2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .literary-text {
+      font-size: 1.375rem;
+      line-height: 2;
+    }
+  }
+  
+  /* ── Poetry Formatting ───────────────────────────────── */
+  
+  .literary-text--poetry {
+    text-align: left;
+  }
+  
+  .literary-text--poetry p {
+    margin-bottom: 0.25em;
+    text-indent: 0;
+  }
+  
+  .literary-text--poetry p:empty,
+  .literary-text--poetry br + br {
+    margin-bottom: 1.5em;
+  }
+  
+  /* Stanza break — empty paragraph between stanzas */
+  .literary-text--poetry p + p {
+    margin-top: 0;
+  }
+  
+  /* Large gap between stanzas marked by empty p */
+  .literary-text--poetry p:empty {
+    height: 1.5em;
+    margin: 0;
+  }
+  
+  /* ── Prose Formatting ────────────────────────────────── */
+  
+  .literary-text--prose p {
+    text-indent: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .literary-text--prose p:first-of-type {
+    text-indent: 0;
+  }
+  
+  .literary-text--prose p:first-of-type::first-letter {
+    font-size: 3.5em;
+    float: left;
+    line-height: 0.8;
+    padding-right: 0.1em;
+    padding-top: 0.05em;
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  
+  /* ── Essay Formatting ────────────────────────────────── */
+  
+  .literary-text--essay p {
+    text-indent: 0;
+    margin-bottom: 1.25em;
+  }
+  
+  .literary-text--essay p + p {
+    margin-top: 0;
+  }
+  
+  /* ── Reflection / Diary Formatting ───────────────────── */
+  
+  .literary-text--reflection p,
+  .literary-text--diary p {
+    text-indent: 0;
+    margin-bottom: 1em;
+  }
+  
+  /* ── Blockquote ──────────────────────────────────────── */
+  
+  .literary-text blockquote {
+    margin: 2em 0;
+    padding: 1em 1.5em;
+    border-left: 2px solid var(--color-accent-light);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    background-color: var(--color-highlight);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  
+  .literary-text blockquote p {
+    text-indent: 0;
+    margin-bottom: 0.5em;
+  }
+  
+  .literary-text blockquote p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* ── Emphasis ────────────────────────────────────────── */
+  
+  .literary-text em {
+    font-style: italic;
+  }
+  
+  .literary-text strong {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .literary-text mark {
+    background-color: var(--color-accent-light);
+    color: var(--color-text-primary);
+    padding: 0.1em 0.3em;
+    border-radius: var(--radius-sm);
+    opacity: 0.4;
+  }
+  
+  /* ── Horizontal Rule / Section Break ─────────────────── */
+  
+  .literary-text hr {
+    border: none;
+    margin: 3em auto;
+    text-align: center;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border),
+      transparent
+    );
+  }
+  
+  .literary-text hr::after {
+    content: '✦';
+    position: relative;
+    top: -0.6em;
+    background-color: var(--color-background);
+    padding: 0 1em;
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+  }
+  
+  /* ── Lists in Literary Text ──────────────────────────── */
+  
+  .literary-text ul,
+  .literary-text ol {
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+  }
+  
+  .literary-text li {
+    margin-bottom: 0.5em;
+    text-indent: 0;
+  }
+  
+  .literary-text ul li::marker {
+    color: var(--color-accent-light);
+  }
+  
+  /* ── Links in Literary Text ──────────────────────────── */
+  
+  .literary-text a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent-light);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color var(--transition-fast);
+  }
+  
+  .literary-text a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+  
+  /* ── Title Typography ────────────────────────────────── */
+  
+  .title-literary {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+  
+  .title-hero {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  
+  @media (min-width: 768px) {
+    .title-hero {
+      font-size: 4rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .title-hero {
+      font-size: 5rem;
+    }
+  }
+  
+  /* ── Caption / Small Text ────────────────────────────── */
+  
+  .text-caption {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  
+  @media (min-width: 768px) {
+    .text-caption {
+      font-size: 0.8125rem;
+    }
+  }
+  
+  /* ── Author Attribution ──────────────────────────────── */
+  
+  .text-attribution {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    text-align: right;
+    margin-top: 1em;
+  }
+  
+  .text-attribution::before {
+    content: '— ';
+  }
+  
+  /* ── Epigraph ────────────────────────────────────────── */
+  
+  .epigraph {
+    font-family: var(--font-literary);
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 24rem;
+    margin: 2em auto;
+    text-align: right;
+    line-height: 1.7;
+  }
+  
+  .epigraph-author {
+    font-style: normal;
+    font-size: 0.875rem;
+    margin-top: 0.5em;
+    color: var(--color-text-tertiary);
+  }
+  
+  /* ── Reading Font Size Adjustments ───────────────────── */
+  
+  .reading-size-14 .literary-text { font-size: 0.875rem; }
+  .reading-size-16 .literary-text { font-size: 1rem; }
+  .reading-size-18 .literary-text { font-size: 1.125rem; }
+  .reading-size-20 .literary-text { font-size: 1.25rem; }
+  .reading-size-22 .literary-text { font-size: 1.375rem; }
+  .reading-size-24 .literary-text { font-size: 1.5rem; }
+  .reading-size-26 .literary-text { font-size: 1.625rem; }
+  .reading-size-28 .literary-text { font-size: 1.75rem; }
+  
+  @media (min-width: 768px) {
+    .reading-size-14 .literary-text { font-size: 1rem; }
+    .reading-size-16 .literary-text { font-size: 1.125rem; }
+    .reading-size-18 .literary-text { font-size: 1.25rem; }
+    .reading-size-20 .literary-text { font-size: 1.375rem; }
+    .reading-size-22 .literary-text { font-size: 1.5rem; }
+    .reading-size-24 .literary-text { font-size: 1.625rem; }
+    .reading-size-26 .literary-text { font-size: 1.75rem; }
+    .reading-size-28 .literary-text { font-size: 1.875rem; }
+  }

@@ -1,0 +1,44 @@
+/* ═══════════════════════════════════════════════════════
+   SEPIA THEME — Parchment
+   Warm, aged paper feeling for comfortable reading
+   ═══════════════════════════════════════════════════════ */
+
+   .sepia-theme,
+   [data-theme="sepia"] {
+     color-scheme: light;
+   
+     --color-background: #F4EEDB;
+     --color-surface: #EDE7D4;
+     --color-text-primary: #3E3428;
+     --color-text-secondary: #7A6C5B;
+     --color-text-tertiary: #9A8D7A;
+     --color-accent: #8B6914;
+     --color-accent-light: #A6935F;
+     --color-accent-hover: #7A5B0E;
+     --color-border: #D8CEAF;
+     --color-border-light: #E5DDCA;
+     --color-highlight: #E5DDCA;
+     --color-shadow: rgba(62, 52, 40, 0.06);
+     --color-overlay: rgba(62, 52, 40, 0.4);
+   
+     --color-success: #5A7A49;
+     --color-warning: #A67B00;
+     --color-error: #8A3A3A;
+     --color-info: #4A6070;
+   
+     --color-card-bg: #F0EADB;
+     --color-card-border: #D8CEAF;
+     --color-card-hover: #EDE7D4;
+   
+     --color-input-bg: #F0EADB;
+     --color-input-border: #D8CEAF;
+     --color-input-focus: #A6935F;
+   
+     --color-button-primary-bg: #8B6914;
+     --color-button-primary-text: #F4EEDB;
+     --color-button-primary-hover: #7A5B0E;
+     --color-button-secondary-bg: transparent;
+     --color-button-secondary-text: #8B6914;
+     --color-button-secondary-border: #D8CEAF;
+     --color-button-secondary-hover: #EDE7D4;
+   }
