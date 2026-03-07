@@ -108,7 +108,7 @@ const cyrillicMap: Record<string, string> = {
    * @returns Unique slug
    */
   export function uniqueSlug(text: string, existingSlugs: string[]): string {
-    let slug = slugify(text)
+    const slug = slugify(text)
     const slugSet = new Set(existingSlugs)
   
     if (!slugSet.has(slug)) return slug

@@ -2,6 +2,15 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+
+const MotionTags = {
+  h1: motion.h1,
+  h2: motion.h2,
+  h3: motion.h3,
+  h4: motion.h4,
+  p: motion.p,
+  span: motion.span,
+} as const
 import { useInView } from '@/lib/hooks/useInView'
 import { cn } from '@/lib/utils/cn'
 
@@ -40,6 +49,7 @@ export function TextReveal({
   as: Tag = 'span',
   once = true,
 }: TextRevealProps) {
+  const MotionTag = MotionTags[Tag] ?? motion.span
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: once,
@@ -73,8 +83,6 @@ export function TextReveal({
       },
     },
   }
-
-  const MotionTag = motion(Tag)
 
   return (
     <MotionTag

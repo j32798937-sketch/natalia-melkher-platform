@@ -70,7 +70,7 @@ export interface AIAssistOptions extends AIAssistInput {
   postType?: PostType
 }
 
-export interface AITranslateOptions extends AITranslateInput {}
+export type AITranslateOptions = AITranslateInput
 
 export interface AIIllustrationOptions {
   /**

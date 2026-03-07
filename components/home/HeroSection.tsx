@@ -10,17 +10,18 @@ import { HeroConstellationScene } from '@/components/visuals/HeroConstellationSc
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/utils/constants'
 
+const FLOATING_SYMBOLS = ['✦', '◈', '◇', '○', '△', '✦', '◈', '◇'] as const
+
 /** Deterministic pseudo-random per index — avoids hydration mismatch */
 function seeded(i: number, max: number) {
   return ((i * 7 + 13) % 97) / 97 * max
 }
 
 function FloatingSymbols() {
-  const symbols = ['✦', '◈', '◇', '○', '△', '✦', '◈', '◇']
   const configs = useMemo(
     () =>
-      symbols.map((_, i) => ({
-        symbol: symbols[i],
+      FLOATING_SYMBOLS.map((symbol, i) => ({
+        symbol,
         fontSize: 1 + seeded(i, 2),
         left: 10 + seeded(i + 1, 80),
         top: 10 + seeded(i + 2, 80),

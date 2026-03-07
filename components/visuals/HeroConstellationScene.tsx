@@ -32,14 +32,19 @@ export function HeroConstellationScene() {
   )
 }
 
+/** Deterministic pseudo-random per index — avoids lint purity and hydration issues */
+function seeded(i: number, max: number) {
+  return ((i * 7 + 13) % 97) / 97 * max
+}
+
 function ConstellationParticles() {
   const count = 500
   const positions = useMemo(() => {
     const pts = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
-      const r = 4 + Math.random() * 3
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
+      const r = 4 + seeded(i, 3)
+      const theta = seeded(i + 1, 1) * Math.PI * 2
+      const phi = Math.acos(2 * seeded(i + 2, 1) - 1)
       pts[i * 3] = r * Math.sin(phi) * Math.cos(theta)
       pts[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
       pts[i * 3 + 2] = r * Math.cos(phi)
