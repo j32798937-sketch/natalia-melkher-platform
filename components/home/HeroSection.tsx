@@ -172,46 +172,17 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
           </div>
         </FadeIn>
 
-        {/* Scroll indicator — FIXED: removed animated cy that caused undefined */}
+        {/* Scroll indicator — minimal chevron */}
         <FadeIn delay={2.5} duration={1} direction="none">
-          <div className="mt-16 md:mt-24 flex flex-col items-center gap-2">
+          <div className="mt-16 md:mt-24 flex justify-center">
             <motion.div
               animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="flex flex-col items-center gap-2"
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-[var(--color-text-tertiary)]/60"
+              aria-hidden="true"
             >
-              <span className="text-xs text-[var(--color-text-tertiary)] tracking-widest uppercase">
-                scroll
-              </span>
-              <svg
-                width="16"
-                height="24"
-                viewBox="0 0 16 24"
-                fill="none"
-                className="text-[var(--color-text-tertiary)]"
-              >
-                <rect
-                  x="1"
-                  y="1"
-                  width="14"
-                  height="22"
-                  rx="7"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="8"
-                  cy="8"
-                  r="2"
-                  fill="currentColor"
-                >
-                  <animate
-                    attributeName="cy"
-                    values="8;14;8"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
               </svg>
             </motion.div>
           </div>

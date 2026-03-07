@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils/cn'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { Button } from '@/components/ui/Button'
@@ -27,22 +26,29 @@ export function InspirationalBanner({ locale, dictionary }: InspirationalBannerP
         {/* Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 via-transparent to-[var(--color-accent-light)]/5" />
 
-        {/* Large decorative symbol */}
-        <motion.div
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
+        {/* Large decorative symbols — subtle literary motif */}
+        <span
+          className={cn(
+            'absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 block',
+            'text-[18rem] md:text-[26rem]',
+            'text-[var(--color-accent-light)]/[0.04]',
+            'font-heading select-none leading-none'
+          )}
+          aria-hidden="true"
         >
-          <span
-            className={cn(
-              'block text-[20rem] md:text-[30rem]',
-              'text-[var(--color-accent-light)]/[0.03]',
-              'font-heading select-none leading-none'
-            )}
-          >
-            ✦
-          </span>
-        </motion.div>
+          ✦
+        </span>
+        <span
+          className={cn(
+            'absolute left-1/4 -translate-x-1/2 top-1/3 block',
+            'text-[10rem] md:text-[14rem]',
+            'text-[var(--color-accent-light)]/[0.02]',
+            'font-heading select-none leading-none'
+          )}
+          aria-hidden="true"
+        >
+          ◈
+        </span>
       </div>
 
       {/* Content */}

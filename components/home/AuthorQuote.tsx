@@ -18,7 +18,7 @@ interface AuthorQuoteProps {
  */
 export function AuthorQuote({ dictionary }: AuthorQuoteProps) {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-16 md:py-24">
       <div className="container-literary text-center">
         <Divider variant="literary" spacing="lg" />
 

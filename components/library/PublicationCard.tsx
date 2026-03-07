@@ -121,12 +121,14 @@ export function PublicationCard({
         <Link href={href} className="block no-underline">
           <div
             className={cn(
-              'relative overflow-hidden rounded-lg',
+              'relative overflow-hidden rounded-xl',
               'border border-[var(--color-card-border)]',
               'bg-[var(--color-card-bg)]',
+              'shadow-[0_2px_8px_var(--color-shadow)]',
               'transition-all duration-500',
               'hover:shadow-literary',
-              'hover:border-[var(--color-accent-light)]/30'
+              'hover:border-[var(--color-accent-light)]/40',
+              'hover:-translate-y-1'
             )}
           >
             {/* Cover image or gradient */}
@@ -228,13 +230,14 @@ export function PublicationCard({
       <Link href={href} className="block no-underline">
         <div
           className={cn(
-            'relative overflow-hidden rounded-lg',
+            'relative overflow-hidden rounded-xl',
             'border border-[var(--color-card-border)]',
             'bg-[var(--color-card-bg)]',
+            'shadow-[0_1px_3px_var(--color-shadow)]',
             'transition-all duration-400',
-            'hover:shadow-soft',
-            'hover:border-[var(--color-accent-light)]/20',
-            'hover:-translate-y-0.5'
+            'hover:shadow-soft hover:shadow-[0_6px_20px_-8px_var(--color-shadow)]',
+            'hover:border-[var(--color-accent-light)]/25',
+            'hover:-translate-y-1'
           )}
         >
           {/* Cover or gradient strip */}

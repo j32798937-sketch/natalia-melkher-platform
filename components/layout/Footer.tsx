@@ -47,11 +47,11 @@ export function Footer({ locale, dictionary }: FooterProps) {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10"
         >
-          {/* ── Brand & Quote ──────────── */}
+          {/* ── Brand & Tagline ──────────── */}
           <div className="lg:col-span-5">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 group no-underline mb-6"
+              className="inline-flex items-center gap-2 group no-underline mb-4"
             >
               <span className="text-[var(--color-accent)] text-xl transition-transform duration-300 group-hover:rotate-12">
                 ✦
@@ -60,12 +60,11 @@ export function Footer({ locale, dictionary }: FooterProps) {
                 {locale === 'ru' ? 'Наталья Мельхер' : 'Natalia Melkher'}
               </span>
             </Link>
-
-            <blockquote className="relative pl-5 border-l-2 border-[var(--color-accent)]/30">
-              <p className="font-literary text-base md:text-lg italic leading-relaxed text-[var(--color-text-secondary)]">
-                &ldquo;{dictionary.home.quote.text}&rdquo;
-              </p>
-            </blockquote>
+            <p className="text-sm text-[var(--color-text-tertiary)] max-w-xs">
+              {locale === 'ru'
+                ? 'Литературная платформа — поэзия, проза, эссе и размышления.'
+                : 'Literary platform — poetry, prose, essays and reflections.'}
+            </p>
           </div>
 
           {/* ── Literary Links ─────────── */}

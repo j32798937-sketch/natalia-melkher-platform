@@ -34,7 +34,9 @@ export default async function HomePage({ params }: HomePageProps) {
 
   try {
     featuredPosts = await getFeaturedPosts(3)
-    latestPosts = await getLatestPosts(6)
+    const allLatest = await getLatestPosts(6)
+    const featuredIds = new Set(featuredPosts.map((p) => p.id))
+    latestPosts = allLatest.filter((p) => !featuredIds.has(p.id)).slice(0, 6)
   } catch (error) {
     console.error('[Melkher] Error fetching posts:', error)
   }

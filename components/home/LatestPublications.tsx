@@ -24,7 +24,9 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
   if (posts.length === 0) return null
 
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-surface)]">
+    <section className="py-16 md:py-24 bg-[var(--color-surface)] relative">
+      {/* Top edge for visual separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-border)] to-transparent" aria-hidden="true" />
       <div className="container-content">
         {/* Section header */}
         <FadeIn direction="up" delay={0.1}>

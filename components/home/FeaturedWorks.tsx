@@ -24,16 +24,18 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
   if (posts.length === 0) return null
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container-content">
+    <section className="py-16 md:py-24 relative">
+      {/* Subtle background accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent)]/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="container-content relative">
         {/* Section header */}
         <FadeIn direction="up" delay={0.1}>
           <div className="flex items-end justify-between mb-10 md:mb-14">
             <div>
-              <span className="text-caption text-[var(--color-accent)] mb-2 block">
+              <span className="text-caption text-[var(--color-accent)] mb-2 block tracking-wide">
                 ✦ {dictionary.home.featured.title}
               </span>
-              <h2 className="font-heading text-2xl md:text-3xl text-[var(--color-text-primary)]">
+              <h2 className="font-heading text-2xl md:text-3xl text-[var(--color-text-primary)] tracking-tight">
                 {dictionary.home.featured.title}
               </h2>
             </div>
