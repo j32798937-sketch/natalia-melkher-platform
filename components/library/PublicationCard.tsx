@@ -31,6 +31,8 @@ interface PublicationCardProps {
   index?: number
   /** Display variant */
   variant?: 'default' | 'featured' | 'compact'
+  /** Center card content (for home page editorial layout) */
+  centered?: boolean
 }
 
 /**
@@ -44,6 +46,7 @@ export function PublicationCard({
   locale,
   index = 0,
   variant = 'default',
+  centered = false,
 }: PublicationCardProps) {
   const categoryIcon = post.categorySlug
     ? CATEGORY_ICONS[post.categorySlug] || '✦'
@@ -171,10 +174,10 @@ export function PublicationCard({
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-4">
+            <div className={cn('p-6 space-y-4', centered && 'text-center')}>
               {/* Category */}
               {post.categoryName && (
-                <div>
+                <div className={cn(centered && 'flex justify-center')}>
                   <Badge variant="outline" size="sm">
                     {categoryIcon} {post.categoryName}
                   </Badge>
@@ -187,11 +190,12 @@ export function PublicationCard({
                   'font-heading text-xl md:text-2xl leading-tight',
                   'text-[var(--color-text-primary)]',
                   'group-hover:text-[var(--color-accent)]',
-                  'transition-colors duration-300'
+                  'transition-colors duration-300',
+                  centered && 'flex flex-wrap justify-center items-center gap-x-2'
                 )}
               >
-                <span className="text-[var(--color-accent-light)] mr-2" aria-hidden="true">{titleSymbol}</span>
-                {post.title}
+                <span className={cn('text-[var(--color-accent-light)]', !centered && 'mr-2')} aria-hidden="true">{titleSymbol}</span>
+                <span>{post.title}</span>
               </h3>
 
               {/* Excerpt */}
@@ -202,7 +206,10 @@ export function PublicationCard({
               )}
 
               {/* Meta — separator prevents "миноколо" when "мин" + "около" run together */}
-              <div className="flex items-center gap-4 text-xs text-[var(--color-text-tertiary)]">
+              <div className={cn(
+                'flex items-center gap-4 text-xs text-[var(--color-text-tertiary)]',
+                centered && 'justify-center'
+              )}>
                 <span className="flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10" />
@@ -265,7 +272,7 @@ export function PublicationCard({
           )}
 
           {/* Content */}
-          <div className="p-5 space-y-3">
+          <div className={cn('p-5 space-y-3', centered && 'text-center')}>
             {/* Category */}
             {post.categoryName && (
               <span className="text-caption text-[var(--color-accent)] block">
@@ -280,11 +287,12 @@ export function PublicationCard({
                 'text-[var(--color-text-primary)]',
                 'group-hover:text-[var(--color-accent)]',
                 'transition-colors duration-300',
-                'line-clamp-2'
+                'line-clamp-2',
+                centered && 'flex flex-wrap justify-center items-center gap-x-2'
               )}
             >
-              <span className="text-[var(--color-accent-light)] mr-1.5" aria-hidden="true">{titleSymbol}</span>
-              {post.title}
+              <span className={cn('text-[var(--color-accent-light)]', !centered && 'mr-1.5')} aria-hidden="true">{titleSymbol}</span>
+              <span>{post.title}</span>
             </h3>
 
             {/* Excerpt */}
@@ -295,7 +303,10 @@ export function PublicationCard({
             )}
 
             {/* Meta — separator prevents "миноколо" when "мин" + "около" run together */}
-            <div className="flex items-center gap-3 text-xs text-[var(--color-text-tertiary)]">
+            <div className={cn(
+              'flex items-center gap-3 text-xs text-[var(--color-text-tertiary)]',
+              centered && 'justify-center'
+            )}>
               <span>{post.readingTime} мин</span>
               {post.publishedAt && (
                 <>

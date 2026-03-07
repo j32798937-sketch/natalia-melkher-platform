@@ -28,9 +28,9 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
       {/* Subtle background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent)]/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
       <div className="container-content relative">
-        {/* Section header */}
+        {/* Section header — centered */}
         <FadeIn direction="up" delay={0.1}>
-          <div className="flex items-end justify-between mb-10 md:mb-14">
+          <div className="flex flex-col items-center text-center gap-6 mb-10 md:mb-14">
             <div>
               <span className="text-caption text-[var(--color-accent)] mb-2 block tracking-wide">
                 ✦ {dictionary.home.featured.title}
@@ -40,6 +40,7 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
               </h2>
             </div>
 
+            <div>
             <Button
               href={`/${locale}/library`}
               variant="ghost"
@@ -60,18 +61,19 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
             >
               {dictionary.home.featured.viewAll}
             </Button>
+            </div>
           </div>
         </FadeIn>
 
-        {/* Featured grid */}
+        {/* Featured grid — centered */}
         <div
           className={cn(
-            'grid gap-8 md:gap-10',
+            'grid gap-8 md:gap-10 justify-items-center',
             posts.length === 1
               ? 'grid-cols-1 max-w-2xl mx-auto'
               : posts.length === 2
-                ? 'grid-cols-1 md:grid-cols-2'
-                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto'
+                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto'
           )}
         >
           {posts.map((post, index) => (
@@ -81,6 +83,7 @@ export function FeaturedWorks({ posts, locale, dictionary }: FeaturedWorksProps)
               locale={locale}
               index={index}
               variant="featured"
+              centered
             />
           ))}
         </div>

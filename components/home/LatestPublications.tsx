@@ -28,9 +28,9 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
       {/* Top edge for visual separation */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-border)] to-transparent" aria-hidden="true" />
       <div className="container-content">
-        {/* Section header */}
+        {/* Section header — centered */}
         <FadeIn direction="up" delay={0.1}>
-          <div className="flex items-end justify-between mb-10 md:mb-14">
+          <div className="flex flex-col items-center text-center gap-6 mb-10 md:mb-14">
             <div>
               <span className="text-caption text-[var(--color-accent)] mb-2 block">
                 ◈ {dictionary.home.latest.title}
@@ -40,6 +40,7 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
               </h2>
             </div>
 
+            <div>
             <Button
               href={`/${locale}/library`}
               variant="ghost"
@@ -60,11 +61,12 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
             >
               {dictionary.home.latest.viewAll}
             </Button>
+            </div>
           </div>
         </FadeIn>
 
-        {/* Publications grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {/* Publications grid — centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center max-w-5xl mx-auto">
           {posts.map((post, index) => (
             <PublicationCard
               key={post.id}
@@ -72,6 +74,7 @@ export function LatestPublications({ posts, locale, dictionary }: LatestPublicat
               locale={locale}
               index={index}
               variant="default"
+              centered
             />
           ))}
         </div>
