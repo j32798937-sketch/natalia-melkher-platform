@@ -71,7 +71,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
   return (
     <section
       className={cn(
-        'relative min-h-[70vh] md:min-h-[75vh] flex items-center justify-center py-12',
+        'relative min-h-[65vh] md:min-h-[70vh] flex items-center justify-center py-8 md:py-10',
         'overflow-hidden'
       )}
     >

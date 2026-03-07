@@ -39,20 +39,20 @@ export function Footer({ locale, dictionary }: FooterProps) {
         <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-l from-transparent to-[var(--color-accent-light)]/40" />
       </div>
 
-      {/* Main footer content — 4 columns: Библиотека | Об авторе | Библиотека | Связаться */}
-      <div className="container-content py-14 pb-12">
+      {/* Main footer content — одна строка: Библиотека | Об авторе | Библиотека | Связаться */}
+      <div className="container-content py-10 pb-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10"
+          className="flex flex-wrap items-start justify-between gap-x-12 gap-y-8"
         >
           {/* Библиотека — категории */}
-          <div>
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
+          <div className="min-w-0">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
               {dictionary.nav.library}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 flex flex-wrap gap-x-4 gap-y-1">
               {footerNavigation.literary.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
@@ -77,11 +77,11 @@ export function Footer({ locale, dictionary }: FooterProps) {
           </div>
 
           {/* Об авторе */}
-          <div>
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
+          <div className="min-w-0">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
               {dictionary.nav.about}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 flex flex-wrap gap-x-4 gap-y-1">
               {footerNavigation.about.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
@@ -119,11 +119,11 @@ export function Footer({ locale, dictionary }: FooterProps) {
           </div>
 
           {/* Библиотека — все публикации */}
-          <div>
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
+          <div className="min-w-0">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
               {dictionary.nav.library}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link
                   href={`/${locale}/library`}
@@ -141,8 +141,8 @@ export function Footer({ locale, dictionary }: FooterProps) {
           </div>
 
           {/* Связаться */}
-          <div>
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-5 text-[var(--color-accent)]/90">
+          <div className="min-w-0">
+            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
               {dictionary.contact.title}
             </h4>
             <a

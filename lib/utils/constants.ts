@@ -120,6 +120,15 @@ export const POST_TYPES = {
     reflections: '○',
     diary: '△',
   }
+
+  /** Symbols before publication titles (emoji-like) */
+  export const TITLE_SYMBOLS: Record<string, string> = {
+    poetry: '✨',
+    prose: '◈',
+    essays: '◇',
+    reflections: '○',
+    diary: '△',
+  }
   
   // ── Meta Defaults ───────────────────────────────────────
   export const META = {

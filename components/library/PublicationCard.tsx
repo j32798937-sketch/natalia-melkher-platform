@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils/cn'
 import { Badge } from '@/components/ui/Badge'
 import { formatDateSmart } from '@/lib/utils/formatDate'
-import { CATEGORY_ICONS } from '@/lib/utils/constants'
+import { CATEGORY_ICONS, TITLE_SYMBOLS } from '@/lib/utils/constants'
 import type { Locale } from '@/lib/utils/constants'
 
 export interface PublicationCardData {
@@ -48,6 +48,9 @@ export function PublicationCard({
   const categoryIcon = post.categorySlug
     ? CATEGORY_ICONS[post.categorySlug] || '✦'
     : '✦'
+  const titleSymbol = post.categorySlug
+    ? TITLE_SYMBOLS[post.categorySlug] || '✦'
+    : '✦'
 
   const href = `/${locale}/library/${post.categorySlug || 'all'}/${post.slug}`
 
@@ -73,9 +76,9 @@ export function PublicationCard({
             '-mx-3 px-3 rounded-lg'
           )}
         >
-          {/* Number / Icon */}
+          {/* Symbol before title */}
           <span className="text-[var(--color-accent-light)] text-sm mt-0.5 flex-shrink-0 w-6 text-center font-heading">
-            {categoryIcon}
+            {titleSymbol}
           </span>
 
           {/* Content */}
@@ -178,7 +181,7 @@ export function PublicationCard({
                 </div>
               )}
 
-              {/* Title */}
+              {/* Title — symbol before title for visual emphasis */}
               <h3
                 className={cn(
                   'font-heading text-xl md:text-2xl leading-tight',
@@ -187,6 +190,7 @@ export function PublicationCard({
                   'transition-colors duration-300'
                 )}
               >
+                <span className="text-[var(--color-accent-light)] mr-2" aria-hidden="true">{titleSymbol}</span>
                 {post.title}
               </h3>
 
@@ -269,7 +273,7 @@ export function PublicationCard({
               </span>
             )}
 
-            {/* Title */}
+            {/* Title — symbol before title */}
             <h3
               className={cn(
                 'font-heading text-lg leading-snug',
@@ -279,6 +283,7 @@ export function PublicationCard({
                 'line-clamp-2'
               )}
             >
+              <span className="text-[var(--color-accent-light)] mr-1.5" aria-hidden="true">{titleSymbol}</span>
               {post.title}
             </h3>
 
