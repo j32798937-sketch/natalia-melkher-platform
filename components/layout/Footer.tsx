@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils/cn'
 import { useInView } from '@/lib/hooks/useInView'
 import { footerNavigation } from '@/lib/config/navigation'
 import { getTranslation, getTranslationWithVars, type Dictionary } from '@/lib/i18n/dictionaries'
+import { Divider } from '@/components/ui/Divider'
 import type { Locale } from '@/lib/utils/constants'
 
 interface FooterProps {
@@ -17,11 +18,18 @@ interface FooterProps {
 /**
  * Site Footer
  *
- * Literary, elegant footer with quote, navigation and contact.
+ * Literary, elegant footer — centered layout with gradient separators.
  */
 export function Footer({ locale, dictionary }: FooterProps) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
   const currentYear = new Date().getFullYear()
+
+  const linkClass = cn(
+    'font-literary text-[15px] text-[var(--color-text-secondary)]',
+    'hover:text-[var(--color-accent)]',
+    'transition-colors duration-300',
+    'inline-block'
+  )
 
   return (
     <footer
@@ -32,42 +40,32 @@ export function Footer({ locale, dictionary }: FooterProps) {
         'bg-gradient-to-b from-[var(--color-background)] to-[var(--color-surface)]'
       )}
     >
-      {/* Decorative top line */}
-      <div className="flex items-center justify-center gap-3 py-8 border-b border-[var(--color-border)]/60">
-        <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-r from-transparent to-[var(--color-accent-light)]/40" />
-        <span className="text-[var(--color-accent-light)]/70 text-lg">✦</span>
-        <div className="h-px flex-1 max-w-[4rem] bg-gradient-to-l from-transparent to-[var(--color-accent-light)]/40" />
+      {/* Top divider — gradient with symbol */}
+      <div className="container-content pt-12 pb-4">
+        <Divider variant="gradient" symbol="✦" spacing="md" />
       </div>
 
-      {/* Main footer content — одна строка: Библиотека | Об авторе | Библиотека | Связаться */}
-      <div className="container-content py-10 pb-10">
+      {/* Main footer — centered, elegant */}
+      <div className="container-content py-12">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="flex flex-wrap items-start justify-between gap-x-12 gap-y-8"
+          className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-x-12 gap-y-10 md:gap-y-12"
         >
           {/* Библиотека — категории */}
-          <div className="min-w-0">
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
+          <div className="flex flex-col items-center text-center min-w-[140px]">
+            <h4 className="font-heading text-xs font-medium uppercase tracking-[0.2em] mb-4 text-[var(--color-accent)]">
               {dictionary.nav.library}
             </h4>
-            <ul className="space-y-2 flex flex-wrap gap-x-4 gap-y-1">
+            <ul className="space-y-2">
               {footerNavigation.literary.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
 
                 return (
                   <li key={item.href}>
-                    <Link
-                      href={href}
-                      className={cn(
-                        'text-sm text-[var(--color-text-secondary)]',
-                        'hover:text-[var(--color-accent)]',
-                        'transition-colors duration-200',
-                        'inline-block hover:translate-x-1'
-                      )}
-                    >
+                    <Link href={href} className={linkClass}>
                       {label}
                     </Link>
                   </li>
@@ -76,83 +74,59 @@ export function Footer({ locale, dictionary }: FooterProps) {
             </ul>
           </div>
 
+          {/* Vertical gradient separator */}
+          <div className="hidden md:block w-px h-24 self-center bg-gradient-to-b from-transparent via-[var(--color-accent)]/40 to-transparent flex-shrink-0" aria-hidden="true" />
+
           {/* Об авторе */}
-          <div className="min-w-0">
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
+          <div className="flex flex-col items-center text-center min-w-[140px]">
+            <h4 className="font-heading text-xs font-medium uppercase tracking-[0.2em] mb-4 text-[var(--color-accent)]">
               {dictionary.nav.about}
             </h4>
-            <ul className="space-y-2 flex flex-wrap gap-x-4 gap-y-1">
+            <ul className="space-y-2">
               {footerNavigation.about.map((item) => {
                 const label = getTranslation(dictionary, item.translationKey, item.label)
                 const href = `/${locale}${item.href}`
 
                 return (
                   <li key={item.href}>
-                    <Link
-                      href={href}
-                      className={cn(
-                        'text-sm text-[var(--color-text-secondary)]',
-                        'hover:text-[var(--color-accent)]',
-                        'transition-colors duration-200',
-                        'inline-block hover:translate-x-1'
-                      )}
-                    >
+                    <Link href={href} className={linkClass}>
                       {label}
                     </Link>
                   </li>
                 )
               })}
               <li>
-                <Link
-                  href={`/${locale}/search`}
-                  className={cn(
-                    'text-sm text-[var(--color-text-secondary)]',
-                    'hover:text-[var(--color-accent)]',
-                    'transition-colors duration-200',
-                    'inline-block hover:translate-x-1'
-                  )}
-                >
+                <Link href={`/${locale}/search`} className={linkClass}>
                   {dictionary.nav.search}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Библиотека — все публикации */}
-          <div className="min-w-0">
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
+          {/* Vertical gradient separator */}
+          <div className="hidden md:block w-px h-24 self-center bg-gradient-to-b from-transparent via-[var(--color-accent)]/40 to-transparent flex-shrink-0" aria-hidden="true" />
+
+          {/* Все публикации */}
+          <div className="flex flex-col items-center text-center min-w-[140px]">
+            <h4 className="font-heading text-xs font-medium uppercase tracking-[0.2em] mb-4 text-[var(--color-accent)]">
               {dictionary.nav.library}
             </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href={`/${locale}/library`}
-                  className={cn(
-                    'text-sm text-[var(--color-text-secondary)]',
-                    'hover:text-[var(--color-accent)]',
-                    'transition-colors duration-200',
-                    'inline-block hover:translate-x-1'
-                  )}
-                >
-                  {locale === 'ru' ? 'Все публикации' : 'All publications'}
-                </Link>
-              </li>
-            </ul>
+            <Link href={`/${locale}/library`} className={linkClass}>
+              {locale === 'ru' ? 'Все публикации' : 'All publications'}
+            </Link>
           </div>
 
+          {/* Vertical gradient separator */}
+          <div className="hidden md:block w-px h-24 self-center bg-gradient-to-b from-transparent via-[var(--color-accent)]/40 to-transparent flex-shrink-0" aria-hidden="true" />
+
           {/* Связаться */}
-          <div className="min-w-0">
-            <h4 className="font-heading text-sm font-medium text-[var(--color-text-primary)] uppercase tracking-widest mb-3 text-[var(--color-accent)]/90">
+          <div className="flex flex-col items-center text-center min-w-[140px]">
+            <h4 className="font-heading text-xs font-medium uppercase tracking-[0.2em] mb-4 text-[var(--color-accent)]">
               {dictionary.contact.title}
             </h4>
             <a
               href="mailto:contact@natalia-melkher.com"
-              className={cn(
-                'text-sm text-[var(--color-text-secondary)]',
-                'hover:text-[var(--color-accent)]',
-                'transition-colors duration-200',
-                'inline-block hover:underline underline-offset-2'
-              )}
+              className={cn(linkClass, 'hover:underline underline-offset-4')}
             >
               contact@natalia-melkher.com
             </a>
@@ -160,19 +134,28 @@ export function Footer({ locale, dictionary }: FooterProps) {
         </motion.div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-[var(--color-border)] bg-[var(--color-surface)]/50">
-        <div className="container-content py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <p className="text-xs text-[var(--color-text-tertiary)]">
+      {/* Gradient separator before bottom bar */}
+      <div className="container-content pb-4">
+        <Divider variant="gradient" symbol="✦" spacing="sm" />
+      </div>
+
+      {/* Bottom bar — centered, subtle */}
+      <div className="border-t border-[var(--color-border)]/80">
+        <div className="container-content py-6">
+          <div className="flex flex-col items-center justify-center gap-2 text-center">
+            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mb-4" aria-hidden="true" />
+            <p className="font-literary text-sm text-[var(--color-text-tertiary)]">
               {getTranslationWithVars(dictionary, 'common.copyright', {
                 year: currentYear,
               })}
               {' · '}
               {dictionary.common.allRightsReserved}
             </p>
-            <p className="text-xs text-[var(--color-text-tertiary)]">
+            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mt-4" aria-hidden="true" />
+            <p className="font-literary text-sm text-[var(--color-text-tertiary)]/80 italic">
+              <span aria-hidden="true">❤️</span>{' '}
               {dictionary.common.madeWith}
+              {' '}<span aria-hidden="true">📚</span>
             </p>
           </div>
         </div>
