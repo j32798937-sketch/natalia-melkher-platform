@@ -143,6 +143,7 @@ export interface Dictionary {
     copyright: string
     allRightsReserved: string
     madeWith: string
+    genresTagline?: string
   }
   ai: {
     assistant: string

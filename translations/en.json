@@ -136,7 +136,8 @@
       "serverErrorMessage": "Something went wrong. Please try again later.",
       "copyright": "© {year} Natalia Melkher",
       "allRightsReserved": "All rights reserved",
-      "madeWith": "Made with love for literature"
+      "madeWith": "Made with love for literature",
+      "genresTagline": "✨ Poetry · ◈ Prose · ◈ Essays · ○ Reflections"
     },
     "ai": {
       "assistant": "AI Assistant",

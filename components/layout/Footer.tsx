@@ -141,9 +141,14 @@ export function Footer({ locale, dictionary }: FooterProps) {
 
       {/* Bottom bar — centered, subtle */}
       <div className="border-t border-[var(--color-border)]/80">
-        <div className="container-content py-6">
-          <div className="flex flex-col items-center justify-center gap-2 text-center">
-            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mb-4" aria-hidden="true" />
+        <div className="container-content pt-12 pb-10">
+          <div className="flex flex-col items-center justify-center gap-6 text-center">
+            {dictionary.common.genresTagline && (
+              <p className="font-literary text-sm text-[var(--color-text-tertiary)]/90 tracking-wide">
+                {dictionary.common.genresTagline}
+              </p>
+            )}
+            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mb-6" aria-hidden="true" />
             <p className="font-literary text-sm text-[var(--color-text-tertiary)]">
               {getTranslationWithVars(dictionary, 'common.copyright', {
                 year: currentYear,
@@ -151,7 +156,7 @@ export function Footer({ locale, dictionary }: FooterProps) {
               {' · '}
               {dictionary.common.allRightsReserved}
             </p>
-            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mt-4" aria-hidden="true" />
+            <div className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/50 to-transparent mt-6" aria-hidden="true" />
             <p className="font-literary text-sm text-[var(--color-text-tertiary)]/80 italic">
               <span aria-hidden="true">❤️</span>{' '}
               {dictionary.common.madeWith}
