@@ -18,8 +18,8 @@ export function useMediaQuery(query: string): boolean {
 
     const mediaQuery = window.matchMedia(query)
 
-    // Set initial value
-    setMatches(mediaQuery.matches)
+    // Set initial value (async to avoid cascading renders)
+    queueMicrotask(() => setMatches(mediaQuery.matches))
 
     // Listen for changes
     const handler = (event: MediaQueryListEvent) => {

@@ -38,7 +38,9 @@ export function AudioPlayer({ content, locale, dictionary }: AudioPlayerProps) {
 
   // Check support
   useEffect(() => {
-    setIsSupported(typeof window !== 'undefined' && 'speechSynthesis' in window)
+    queueMicrotask(() =>
+      setIsSupported(typeof window !== 'undefined' && 'speechSynthesis' in window)
+    )
   }, [])
 
   // Cleanup on unmount

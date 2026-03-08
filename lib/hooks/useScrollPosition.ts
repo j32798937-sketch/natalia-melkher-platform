@@ -107,8 +107,8 @@ export function useScrollPosition(
 
     window.addEventListener('scroll', throttledUpdate, { passive: true })
 
-    // Initial position
-    updatePosition()
+    // Initial position (async to avoid cascading renders)
+    queueMicrotask(() => updatePosition())
 
     return () => {
       window.removeEventListener('scroll', throttledUpdate)

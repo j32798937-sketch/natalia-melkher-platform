@@ -32,6 +32,7 @@
 
   /* Spacing */
   --header-height: 4.5rem;
+  --safe-area-top: env(safe-area-inset-top, 0px);
   --content-max-width: 64rem;
   --reading-max-width: 38rem;
   --sidebar-width: 16rem;
@@ -131,6 +132,15 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-background);
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Touch: remove 300ms delay, prevent accidental zoom */
+@media (pointer: coarse) {
+  html {
+    touch-action: manipulation;
+  }
 }
 
 /* ── Selection ───────────────────────────────────────── */
@@ -291,7 +301,7 @@ p {
 
 .page-content {
   flex: 1;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + var(--safe-area-top));
 }
 
 /* ── Container ───────────────────────────────────────── */
@@ -301,8 +311,8 @@ p {
   max-width: var(--reading-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
 }
 
 .container-content {
@@ -310,15 +320,15 @@ p {
   max-width: var(--content-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
 }
 
 @media (min-width: 768px) {
   .container-literary,
   .container-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
   }
 }
 
@@ -394,6 +404,12 @@ html.lenis body {
   display: none;
 }
 
+/* Smooth scrolling on iOS */
+.overflow-y-auto,
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ── Glass Effect ────────────────────────────────────── */
 
 .glass {
@@ -415,8 +431,9 @@ html.lenis body {
 .gradient-text {
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback for older browsers */
 }
 
 /* ── Loading Shimmer ─────────────────────────────────── */

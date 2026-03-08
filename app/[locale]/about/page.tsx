@@ -24,13 +24,22 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
   if (!isValidLocale(locale)) return {}
 
   const dict = await getDictionary(locale as Locale)
+  const canonicalUrl = generateCanonicalUrl('/about', locale as Locale)
 
   return {
     title: dict.about.title,
     description: dict.about.subtitle,
-    alternates: {
-      canonical: generateCanonicalUrl('/about', locale as Locale),
+    keywords: ['Наталья Мельхер', 'биография автора', 'писатель', 'поэт', 'автор эссе', 'литературная платформа', 'Natalia Melkher', 'author', 'writer', 'poet'],
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      type: 'profile',
+      title: dict.about.title,
+      description: dict.about.subtitle,
+      url: canonicalUrl,
+      siteName: 'Наталья Мельхер',
+      locale: locale === 'ru' ? 'ru_RU' : locale === 'en' ? 'en_US' : undefined,
     },
+    twitter: { card: 'summary', title: dict.about.title, description: dict.about.subtitle },
   }
 }
 

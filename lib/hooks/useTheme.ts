@@ -91,9 +91,11 @@ export function useThemeProvider(): ThemeContextType {
   // Initialize theme on mount
   useEffect(() => {
     const initialTheme = getInitialTheme()
-    setThemeState(initialTheme)
-    applyThemeToDOM(initialTheme)
-    setIsLoaded(true)
+    queueMicrotask(() => {
+      setThemeState(initialTheme)
+      applyThemeToDOM(initialTheme)
+      setIsLoaded(true)
+    })
   }, [])
 
   // Listen for system theme changes

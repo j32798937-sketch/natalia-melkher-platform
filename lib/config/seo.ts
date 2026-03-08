@@ -160,6 +160,11 @@ export function generateWebsiteSchema() {
       },
       'query-input': 'required name=search_term_string',
     },
+    publisher: {
+      '@type': 'Person',
+      name: siteConfig.author.name,
+      url: siteConfig.url,
+    },
   }
 }
 
@@ -191,10 +196,15 @@ export function generateArticleSchema(article: {
   modifiedTime?: string
   section?: string
   locale?: Locale
+  genre?: string
 }) {
-  return {
+  const isPoetry = article.section?.toLowerCase().includes('поэзи') || article.section?.toLowerCase() === 'poetry'
+  const isProse = article.section?.toLowerCase().includes('проз') || article.section?.toLowerCase() === 'prose'
+  const schemaType = isPoetry || isProse ? 'CreativeWork' : 'Article'
+
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': schemaType,
     headline: article.title,
     description: article.description,
     url: article.url,
@@ -216,6 +226,14 @@ export function generateArticleSchema(article: {
       ? ogLocaleMap[article.locale].replace('_', '-')
       : 'ru',
   }
+
+  if (schemaType === 'CreativeWork') {
+    schema.genre = article.genre || article.section || (isPoetry ? 'Поэзия' : 'Проза')
+    schema.creator = generatePersonSchema()
+    schema.isAccessibleForFree = true
+  }
+
+  return schema
 }
 
 /**

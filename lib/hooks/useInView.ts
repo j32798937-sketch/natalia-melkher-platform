@@ -76,8 +76,7 @@ export function useInView(options: UseInViewOptions = {}): UseInViewReturn {
     if (!element) return
 
     if (typeof IntersectionObserver === 'undefined') {
-      // Fallback: always visible
-      setInView(true)
+      queueMicrotask(() => setInView(true))
       return
     }
 

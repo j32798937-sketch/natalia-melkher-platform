@@ -1,6 +1,7 @@
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { isValidLocale } from '@/lib/i18n/config'
 import { notFound } from 'next/navigation'
+import { generateCanonicalUrl } from '@/lib/config/seo'
 import { SearchPageClient } from '@/components/search/SearchPageClient'
 import type { Metadata } from 'next'
 import type { Locale } from '@/lib/utils/constants'
@@ -15,8 +16,16 @@ export async function generateMetadata({ params }: SearchPageProps): Promise<Met
 
   const dict = await getDictionary(locale as Locale)
 
+  const canonicalUrl = generateCanonicalUrl('/search', locale as Locale)
   return {
     title: dict.search.title,
+    description:
+      locale === 'ru'
+        ? 'Поиск по публикациям — поэзия, проза, эссе'
+        : 'Search publications — poetry, prose, essays',
+    alternates: {
+      canonical: canonicalUrl,
+    },
     robots: { index: false, follow: true },
   }
 }

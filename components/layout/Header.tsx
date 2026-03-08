@@ -39,7 +39,7 @@ export function Header({ locale, dictionary }: HeaderProps) {
   // Close mobile menu on resize to desktop
   useEffect(() => {
     if (!isMobile && mobileMenuOpen) {
-      setMobileMenuOpen(false)
+      queueMicrotask(() => setMobileMenuOpen(false))
     }
   }, [isMobile, mobileMenuOpen])
 
@@ -90,7 +90,7 @@ export function Header({ locale, dictionary }: HeaderProps) {
         />
 
         {/* Header content */}
-        <div className="relative container-content">
+        <div className="relative container-content pt-[var(--safe-area-top)]">
           <div className="flex items-center justify-between h-[var(--header-height)]">
             {/* ── Logo / Site Name ──────────────────── */}
             <Link

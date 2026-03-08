@@ -4,6 +4,7 @@ import React from 'react'
 import { cn } from '@/lib/utils/cn'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { Button } from '@/components/ui/Button'
+import { Divider } from '@/components/ui/Divider'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/utils/constants'
 
@@ -21,6 +22,12 @@ interface InspirationalBannerProps {
 export function InspirationalBanner({ locale, dictionary }: InspirationalBannerProps) {
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
+      {/* Градиентный разделитель сверху — отделяет от публикаций */}
+      <div className="absolute top-0 left-0 right-0 py-8 pointer-events-none container-content">
+        <div className="max-w-2xl mx-auto">
+          <Divider variant="gradient" symbol="✦" spacing="md" />
+        </div>
+      </div>
       {/* Background elements */}
       <div className="absolute inset-0" aria-hidden="true">
         {/* Gradient */}

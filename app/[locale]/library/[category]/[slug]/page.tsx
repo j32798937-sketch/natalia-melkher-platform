@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: ReadingPageProps): Promise<Me
   const post = await getPostBySlug(slug)
   if (!post) return {}
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || ''
   const canonicalUrl = generateCanonicalUrl(`/library/${category}/${slug}`, locale as Locale)
 
   return {
@@ -66,7 +65,7 @@ export default async function ReadingPage({ params }: ReadingPageProps) {
   // Increment views
   try {
     await incrementViews(post.id)
-  } catch (e) {
+  } catch {
     // Silent fail
   }
 
@@ -76,12 +75,11 @@ export default async function ReadingPage({ params }: ReadingPageProps) {
   let relatedPosts: PublicationCardData[] = []
   try {
     relatedPosts = await getRelatedPosts(post.id, post.category_id, 4)
-  } catch (e) {
+  } catch {
     // Silent fail
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || ''
-  const canonicalUrl = `${siteUrl}/${locale}/library/${category}/${slug}`
+  const canonicalUrl = generateCanonicalUrl(`/library/${category}/${slug}`, locale as Locale)
 
   // Article schema
   const articleSchema = generateArticleSchema({
@@ -93,6 +91,7 @@ export default async function ReadingPage({ params }: ReadingPageProps) {
     modifiedTime: post.updated_at,
     section: post.category_name || undefined,
     locale: locale as Locale,
+    genre: post.category_name || undefined,
   })
 
   return (

@@ -36,14 +36,16 @@ export function useLocalStorage<T>(
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    try {
-      const item = window.localStorage.getItem(key)
-      if (item) {
-        setStoredValue(JSON.parse(item) as T)
+    queueMicrotask(() => {
+      try {
+        const item = window.localStorage.getItem(key)
+        if (item) {
+          setStoredValue(JSON.parse(item) as T)
+        }
+      } catch (error) {
+        console.warn(`[Melkher] Error reading localStorage key "${key}":`, error)
       }
-    } catch (error) {
-      console.warn(`[Melkher] Error reading localStorage key "${key}":`, error)
-    }
+    })
   }, [key])
 
   // Set value

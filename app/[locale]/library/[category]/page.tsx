@@ -39,11 +39,32 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const cat = await getCategoryBySlug(category)
   if (!cat) return {}
 
+  const canonicalUrl = generateCanonicalUrl(`/library/${category}`, locale as Locale)
+  const description = cat.description || `${cat.name} — ${locale === 'ru' ? 'тексты и публикации' : 'texts and publications'} на литературной платформе Натальи Мельхер`
   return {
     title: cat.name,
-    description: cat.description || cat.name,
+    description,
+    keywords: [
+      cat.name,
+      'Наталья Мельхер',
+      category,
+      locale === 'ru' ? 'литература' : 'literature',
+      locale === 'ru' ? 'публикации' : 'publications',
+    ],
     alternates: {
-      canonical: generateCanonicalUrl(`/library/${category}`, locale as Locale),
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: 'website',
+      title: cat.name,
+      description,
+      url: canonicalUrl,
+      siteName: 'Наталья Мельхер',
+    },
+    twitter: {
+      card: 'summary',
+      title: cat.name,
+      description,
     },
   }
 }

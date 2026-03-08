@@ -7,7 +7,7 @@ interface DividerProps {
   /** Decorative symbol in the center */
   symbol?: string
   /** Variant */
-  variant?: 'default' | 'subtle' | 'literary' | 'ornamental'
+  variant?: 'default' | 'subtle' | 'literary' | 'ornamental' | 'gradient'
   /** Spacing */
   spacing?: 'sm' | 'md' | 'lg'
   className?: string
@@ -33,6 +33,26 @@ export function Divider({
     sm: 'my-4',
     md: 'my-8',
     lg: 'my-12',
+  }
+
+  if (variant === 'gradient') {
+    return (
+      <div
+        className={cn(
+          'flex items-center justify-center gap-3 py-4',
+          spacingClasses[spacing],
+          className
+        )}
+        role="separator"
+        aria-hidden="true"
+      >
+        <div className="h-px flex-1 max-w-[8rem] md:max-w-[12rem] bg-gradient-to-r from-transparent to-[var(--color-accent-light)]/60" />
+        <span className="text-[var(--color-accent-light)]/90 text-xl">
+          {symbol || '✦'}
+        </span>
+        <div className="h-px flex-1 max-w-[8rem] md:max-w-[12rem] bg-gradient-to-l from-transparent to-[var(--color-accent-light)]/60" />
+      </div>
+    )
   }
 
   if (variant === 'ornamental') {
